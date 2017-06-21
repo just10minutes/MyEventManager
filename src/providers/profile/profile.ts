@@ -2,12 +2,7 @@ import { Injectable } from '@angular/core';
 
 import firebase from 'firebase';
 
-/*
-  Generated class for the ProfileProvider provider.
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular DI.
-*/
 @Injectable()
 export class ProfileProvider {
 
@@ -44,7 +39,6 @@ export class ProfileProvider {
     updateEmail(newEmail: string, password: string): firebase.Promise<any> {
       const credential =  firebase.auth.EmailAuthProvider
           .credential(firebase.auth().currentUser.email, password);
-
     return firebase.auth().currentUser.reauthenticate(credential)
     .then( user => {
       firebase.auth().currentUser.updateEmail(newEmail).then( user => {
